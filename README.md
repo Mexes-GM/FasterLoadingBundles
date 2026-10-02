@@ -1,4 +1,4 @@
-# BundleCacheBoost
+# FasterLoadingBundles
 
 Client mod for **SPT 4.0.x** that makes the "Loading bundles" step at game start near instant when you play with modded content on a remote server or as a **Fika client**.
 
@@ -8,7 +8,7 @@ When the client connects to a non-local server, SPT 4.0 checks every cached mod 
 
 ## What this mod does
 
-- **Verification cache:** stores size, last write time and CRC of each verified bundle in `SPT/user/cache/BundleCacheBoost.json`. If a bundle's file is unchanged and the server still reports the same CRC, it is not read again.
+- **Verification cache:** stores size, last write time and CRC of each verified bundle in `SPT/user/cache/FasterLoadingBundles.json`. If a bundle's file is unchanged and the server still reports the same CRC, it is not read again.
 - **Parallel hashing:** bundles that do need checking (first launch, mod updates) are hashed on several threads, streamed from disk instead of loaded whole.
 - **Same outcome as SPT:** missing bundles or bundles whose CRC differs from the server are re-downloaded exactly as before.
 
@@ -25,13 +25,13 @@ The log shows a summary line, e.g. `Verified 3135 bundles in 900 ms: 3135 from c
 ## Install
 
 Extract the zip into your SPT folder (the one containing `EscapeFromTarkov.exe`). You should end up with
-`BepInEx/plugins/BundleCacheBoost/BundleCacheBoost.dll`.
+`BepInEx/plugins/FasterLoadingBundles/FasterLoadingBundles.dll`.
 
 Client only: the server, host and other players do not need it.
 
-To uninstall, delete `BepInEx/plugins/BundleCacheBoost`. You can also delete `SPT/user/cache/BundleCacheBoost.json`.
+To uninstall, delete `BepInEx/plugins/FasterLoadingBundles`. You can also delete `SPT/user/cache/FasterLoadingBundles.json`.
 
-## Configuration (F12 / `BepInEx/config/com.mexes.bundlecacheboost.cfg`)
+## Configuration (F12 / `BepInEx/config/com.mexes.fasterloadingbundles.cfg`)
 
 | Option | Default | Description |
 |---|---|---|
@@ -53,7 +53,7 @@ Requires the .NET SDK and an SPT 4.0.x install for references:
 dotnet build -c Release -p:GameDir="C:\path\to\SPT"
 ```
 
-The Release build writes `dist/BundleCacheBoost-<version>.zip`.
+The Release build writes `dist/FasterLoadingBundles-<version>.zip`.
 
 ## Changelog
 

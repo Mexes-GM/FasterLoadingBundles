@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
-        <AssemblyName>BundleCacheBoost</AssemblyName>
-        <RootNamespace>BundleCacheBoost</RootNamespace>
+        <AssemblyName>FasterLoadingBundles</AssemblyName>
+        <RootNamespace>FasterLoadingBundles</RootNamespace>
         <LangVersion>latest</LangVersion>
         <Nullable>disable</Nullable>
         <Version>1.0.0</Version>
@@ -38,7 +38,7 @@
         <Reference Include="spt-custom"><HintPath>$(SptPlugins)\spt-custom.dll</HintPath></Reference>
     </ItemGroup>
 
-    <!-- Release builds produce dist\BundleCacheBoost-<version>.zip, ready to extract into the SPT folder.
+    <!-- Release builds produce dist\FasterLoadingBundles-<version>.zip, ready to extract into the SPT folder.
          Nothing is copied into BepInEx\plugins automatically. -->
     <Target Name="PackageRelease" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
         <PropertyGroup>
@@ -46,10 +46,10 @@
             <DistDir>$(MSBuildProjectDirectory)\dist</DistDir>
         </PropertyGroup>
         <RemoveDir Directories="$(StageDir)" />
-        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(StageDir)\BepInEx\plugins\BundleCacheBoost" />
-        <Copy SourceFiles="README.md;LICENSE" DestinationFolder="$(StageDir)\BepInEx\plugins\BundleCacheBoost" />
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(StageDir)\BepInEx\plugins\FasterLoadingBundles" />
+        <Copy SourceFiles="README.md;LICENSE" DestinationFolder="$(StageDir)\BepInEx\plugins\FasterLoadingBundles" />
         <MakeDir Directories="$(DistDir)" />
-        <Delete Files="$(DistDir)\BundleCacheBoost-$(Version).zip" />
-        <ZipDirectory SourceDirectory="$(StageDir)" DestinationFile="$(DistDir)\BundleCacheBoost-$(Version).zip" />
+        <Delete Files="$(DistDir)\FasterLoadingBundles-$(Version).zip" />
+        <ZipDirectory SourceDirectory="$(StageDir)" DestinationFile="$(DistDir)\FasterLoadingBundles-$(Version).zip" />
     </Target>
 </Project>

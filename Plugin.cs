@@ -16,13 +16,13 @@ using SPT.Common.Http;
 using SPT.Custom.Models;
 using SPT.Custom.Utils;
 
-namespace BundleCacheBoost
+namespace FasterLoadingBundles
 {
-    [BepInPlugin(Guid, "Mexes-BundleCacheBoost", Version)]
+    [BepInPlugin(Guid, "Mexes-FasterLoadingBundles", Version)]
     [BepInDependency("com.SPT.custom")]
     public class Plugin : BaseUnityPlugin
     {
-        public const string Guid = "com.mexes.bundlecacheboost";
+        public const string Guid = "com.mexes.fasterloadingbundles";
         public const string Version = "1.0.0";
 
         internal static ManualLogSource Log;
@@ -53,7 +53,7 @@ namespace BundleCacheBoost
                 var target = FindTarget(out var reason);
                 if (target == null)
                 {
-                    Log.LogWarning($"{reason} BundleCacheBoost will stay inactive; SPT's default bundle check is used.");
+                    Log.LogWarning($"{reason} FasterLoadingBundles will stay inactive; SPT's default bundle check is used.");
                     return;
                 }
 
@@ -63,7 +63,7 @@ namespace BundleCacheBoost
                     ForceFullVerify.Value = false;
                 }
 
-                BundleVerifier.Init(Path.Combine(Paths.GameRootPath, "SPT/user/cache/BundleCacheBoost.json"), ignoreCache, MaxThreads.Value);
+                BundleVerifier.Init(Path.Combine(Paths.GameRootPath, "SPT/user/cache/FasterLoadingBundles.json"), ignoreCache, MaxThreads.Value);
 
                 new Harmony(Guid).Patch(target, prefix: new HarmonyMethod(typeof(Plugin), nameof(ShouldAcquirePrefix)));
             }

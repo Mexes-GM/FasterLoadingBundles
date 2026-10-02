@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace BundleCacheBoost
+namespace FasterLoadingBundles
 {
     /// <summary>
     /// CRC-32 IEEE (reflected polynomial 0xEDB88320), same result as SPT.Custom.Utils.Crc32,
