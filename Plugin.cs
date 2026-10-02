@@ -18,7 +18,7 @@ using SPT.Custom.Utils;
 
 namespace BundleCacheBoost
 {
-    [BepInPlugin(Guid, "BundleCacheBoost", Version)]
+    [BepInPlugin(Guid, "Mexes-BundleCacheBoost", Version)]
     [BepInDependency("com.SPT.custom")]
     public class Plugin : BaseUnityPlugin
     {

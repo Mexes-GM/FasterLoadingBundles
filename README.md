@@ -55,6 +55,11 @@ dotnet build -c Release -p:GameDir="C:\path\to\SPT"
 
 The Release build writes `dist/BundleCacheBoost-<version>.zip`.
 
+## Changelog
+
+### 1.0.0
+- First release.
+
 ## License
 
 MIT
